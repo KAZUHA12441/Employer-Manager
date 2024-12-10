@@ -30,7 +30,7 @@ public class pro extends JFrame {
 					e.printStackTrace();
 				}
 			}
-		};
+		});
 	}
 
 	/**
