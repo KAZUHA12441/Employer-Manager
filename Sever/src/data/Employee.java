@@ -3,7 +3,8 @@ package data;
 import javax.print.DocFlavor;
 import java.io.Serializable;
 
-public class Employee implements Serializable {
+public class Employee implements Serializable{
+
     private static final long serialVersionUID = 1L;
     public static Integer max_count = 0;
 
@@ -28,7 +29,7 @@ public class Employee implements Serializable {
      * @param sex   性别
      * @param posts 职位
      */
-    public Employee(String name, String sex, String posts,String phoneNumber)
+    public Employee(String name, String sex, String posts,Integer phoneNumber)
     {
         this.name = name;
         this.sex = sex;

@@ -10,6 +10,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.net.Socket;
 
 public class pro extends JFrame {
 
@@ -20,7 +22,8 @@ public class pro extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		Socket socket = new Socket("127.0.0.1",8983);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

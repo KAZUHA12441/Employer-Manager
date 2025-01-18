@@ -38,7 +38,7 @@ public class Result {
         return employee;
     }
 
-    public void setStudent(Employee employee) {
+    public void setEmployee(Employee employee) {
         this.employee = employee;
     }
 
