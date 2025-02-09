@@ -30,15 +30,25 @@ public class ReadClientDateThread extends Thread{
 
             switch (type)
             {
+                case "login":
+                    break;
                 case "add":
+                    server.add(date);
                     break;
                 case "delete":
+                    server.delete(date);
                     break;
                 case "sreach":
+                    server.search(date);
                     break;
                 case "modify":
+                    server.modify(date);
                     break;
-
+                case "statistic":
+                    server.statistic(date);
+                    break;
+                default:
+                    break;
             }
 
             try

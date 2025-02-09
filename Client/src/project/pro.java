@@ -23,7 +23,7 @@ public class pro extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) throws IOException {
-		Socket socket = new Socket("127.0.0.1",8983);
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
