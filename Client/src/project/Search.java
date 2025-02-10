@@ -231,18 +231,13 @@ public class Search extends JPanel {
 			String response = in.readLine();
 			Result result = gson.fromJson(response, Result.class);
 
-			if (result.isSuccess()) {
+
 				employees = result.getEmployees_list();
 				totalPages = (int) Math.ceil((double) employees.size() / pageSize);
 				currentPage = 1; // 重置当前页码
 				JOptionPane.showMessageDialog(this, "我是傻逼");
 				updateTable();
-			} else {
-				JOptionPane.showMessageDialog(this,"loadEmployeeData()");
-				JOptionPane.showMessageDialog(this,"我是人才");// result.getMessage()
 
-
-			}
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(this, "通信错误: " + e.getMessage());
 		}

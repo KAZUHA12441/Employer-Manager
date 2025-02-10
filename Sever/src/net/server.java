@@ -6,7 +6,6 @@ import data.Employee;
 import data.Result;
 import data.Search_Key;
 import tool.FileTool;
-import tool.Filter;
 import tool.SortEmployee;
 import tool.login;
 
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Iterator;
 
 public class server {
@@ -94,6 +92,7 @@ public class server {
         } catch (JsonSyntaxException e) {
               e.printStackTrace();
               result.setMessage("添加失败");
+            result.setSuccess(false);  //多了这个
         }
         return result;
 
@@ -131,6 +130,7 @@ public class server {
             e.printStackTrace();
             result.setMessage("删除失败");
             //返回处理结果
+            result.setSuccess(false);  //多了这个
         }
         return result;
     }
@@ -151,7 +151,7 @@ public class server {
            while (iterator.hasNext())
            {
                it = iterator.next();
-               if(it.getID().equals(modifyEmployeeDate.getID()));
+               if(it.getID().equals(modifyEmployeeDate.getID()))
                {
                    //数据copy
                    it.setID(modifyEmployeeDate.getID());
@@ -209,6 +209,7 @@ public class server {
         } catch (JsonSyntaxException e) {
             e.printStackTrace();
             result.setMessage("查找出错");
+            result.setSuccess(false);   //多了这个
         }
         return result; //返回查找结果
     }
@@ -244,7 +245,7 @@ public class server {
                while(iterator.hasNext())
                {
                    it = iterator.next();
-                   if(it.getSalary()>Integer.parseInt(key.getKey()));
+                   if(it.getSalary()>Integer.parseInt(key.getKey()))
                    {
                        result.getEmployees_list().add(it);
                        employeeCount++;
@@ -268,12 +269,11 @@ public class server {
         Result result = new Result();
         if (gson.fromJson(date, login.class).getName().equals(AdministratorName)) {
             if (gson.fromJson(date, login.class).getPassword().equals(Administrator_Password)) {
-                result.setMessage("密码正确");
+                result.setMessage("正确");
                 flag = true;
             }
         }
         if (!flag) {
-
             result.setMessage("用户名或者密码错误");
         }
         return result;

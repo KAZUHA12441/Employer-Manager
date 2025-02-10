@@ -18,36 +18,39 @@ public class ReadClientDateThread extends Thread{
        result = new Result();
        gson = new Gson();
     }
-
+  //原版
     public void run()
     {
         String type,date;
         try
         {
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-            //客户端发送俩行，一行操作类型，一行数据将数据序列化
             type = reader.readLine();
             date = reader.readLine();
 
             switch (type)
             {
-                case "login": //登录
+                case "login":
                     break;
-                case "add":   //添加
-                    server.add(date);
+                case "add":
+                //    server.add(date);          原来
+                    result = server.add(date);
                     break;
-                case "delete": //删除
-                    server.delete(date);
+                case "delete":
+              //      server.delete(date);     原来
+                    result = server.delete(date);
                     break;
-                case "sreach": //查找
-                    server.search(date);
+                case "search":  //原来是sreach
+            //        server.search(date);  原来
+                    result = server.search(date);
                     break;
-                case "modify": //修改
-                    server.modify(date);
+                case "modify":
+              //      server.modify(date);  原来
+                    result = server.modify(date);
                     break;
-                case "statistic": //筛选
-                    server.statistic(date);
+                case "statistic":
+               //     server.statistic(date);  原来
+                    result = server.statistic(date);
                     break;
                 default:
                     break;
@@ -66,5 +69,6 @@ public class ReadClientDateThread extends Thread{
             System.out.println("找不到用户"+"id为"+socket.getRemoteSocketAddress());
         }
     }
+
 
 }

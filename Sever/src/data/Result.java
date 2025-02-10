@@ -2,9 +2,6 @@ package data;
 
 import java.util.ArrayList;
 
-/**
- * 发送接收数据包
- */
 public class Result {
     private boolean success;
 
