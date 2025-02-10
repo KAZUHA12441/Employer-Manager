@@ -268,7 +268,7 @@ public class server {
         Result result = new Result();
         if (gson.fromJson(date, login.class).getName().equals(AdministratorName)) {
             if (gson.fromJson(date, login.class).getPassword().equals(Administrator_Password)) {
-                result.setMessage("正确");
+                result.setMessage("密码正确");
                 flag = true;
             }
         }

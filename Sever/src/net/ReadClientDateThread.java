@@ -25,26 +25,28 @@ public class ReadClientDateThread extends Thread{
         try
         {
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            //客户端发送俩行，一行操作类型，一行数据将数据序列化
             type = reader.readLine();
             date = reader.readLine();
 
             switch (type)
             {
-                case "login":
+                case "login": //登录
                     break;
-                case "add":
+                case "add":   //添加
                     server.add(date);
                     break;
-                case "delete":
+                case "delete": //删除
                     server.delete(date);
                     break;
-                case "sreach":
+                case "sreach": //查找
                     server.search(date);
                     break;
-                case "modify":
+                case "modify": //修改
                     server.modify(date);
                     break;
-                case "statistic":
+                case "statistic": //筛选
                     server.statistic(date);
                     break;
                 default:
